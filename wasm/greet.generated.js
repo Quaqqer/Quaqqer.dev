@@ -2,19 +2,18 @@
 // @ts-nocheck: generated
 // deno-lint-ignore-file
 // deno-fmt-ignore-file
-/// <reference types="./rs_lib.generated.d.ts" />
+/// <reference types="./greet.generated.d.ts" />
 
-// source-hash: 5b35db972ae51a25f53074fc7591d855a5bbebda
+// source-hash: 1296bda20c08e47e31dcdc0a14ff6fc08b067642
 let wasm;
 
-const cachedTextDecoder =
-  typeof TextDecoder !== "undefined"
-    ? new TextDecoder("utf-8", { ignoreBOM: true, fatal: true })
-    : {
-        decode: () => {
-          throw Error("TextDecoder not available");
-        },
-      };
+const cachedTextDecoder = typeof TextDecoder !== "undefined"
+  ? new TextDecoder("utf-8", { ignoreBOM: true, fatal: true })
+  : {
+    decode: () => {
+      throw Error("TextDecoder not available");
+    },
+  };
 
 if (typeof TextDecoder !== "undefined") cachedTextDecoder.decode();
 
@@ -43,14 +42,13 @@ export function add(a, b) {
 
 let WASM_VECTOR_LEN = 0;
 
-const cachedTextEncoder =
-  typeof TextEncoder !== "undefined"
-    ? new TextEncoder("utf-8")
-    : {
-        encode: () => {
-          throw Error("TextEncoder not available");
-        },
-      };
+const cachedTextEncoder = typeof TextEncoder !== "undefined"
+  ? new TextEncoder("utf-8")
+  : {
+    encode: () => {
+      throw Error("TextEncoder not available");
+    },
+  };
 
 const encodeString = function (arg, view) {
   return cachedTextEncoder.encodeInto(arg, view);
@@ -60,9 +58,7 @@ function passStringToWasm0(arg, malloc, realloc) {
   if (realloc === undefined) {
     const buf = cachedTextEncoder.encode(arg);
     const ptr = malloc(buf.length, 1) >>> 0;
-    getUint8Memory0()
-      .subarray(ptr, ptr + buf.length)
-      .set(buf);
+    getUint8Memory0().subarray(ptr, ptr + buf.length).set(buf);
     WASM_VECTOR_LEN = buf.length;
     return ptr;
   }
@@ -76,7 +72,7 @@ function passStringToWasm0(arg, malloc, realloc) {
 
   for (; offset < len; offset++) {
     const code = arg.charCodeAt(offset);
-    if (code > 0x7f) break;
+    if (code > 0x7F) break;
     mem[ptr + offset] = code;
   }
 
@@ -84,7 +80,7 @@ function passStringToWasm0(arg, malloc, realloc) {
     if (offset !== 0) {
       arg = arg.slice(offset);
     }
-    ptr = realloc(ptr, len, (len = offset + arg.length * 3), 1) >>> 0;
+    ptr = realloc(ptr, len, len = offset + arg.length * 3, 1) >>> 0;
     const view = getUint8Memory0().subarray(ptr + offset, ptr + len);
     const ret = encodeString(arg, view);
 
@@ -105,10 +101,9 @@ function getInt32Memory0() {
   return cachedInt32Memory0;
 }
 
-const GreeterFinalization =
-  typeof FinalizationRegistry === "undefined"
-    ? { register: () => {}, unregister: () => {} }
-    : new FinalizationRegistry((ptr) => wasm.__wbg_greeter_free(ptr >>> 0));
+const GreeterFinalization = (typeof FinalizationRegistry === "undefined")
+  ? { register: () => {}, unregister: () => {} }
+  : new FinalizationRegistry((ptr) => wasm.__wbg_greeter_free(ptr >>> 0));
 /** */
 export class Greeter {
   __destroy_into_raw() {
@@ -411,7 +406,7 @@ IAJBDGoQHQALPAEBfyAAQQxqKAIAIQICQAJAIAAoAgQOAgAAAQsgAg0AIAEtABAgAS0AERATAAsgAS\
 CxcAAkAgAUEJSQ0AIAEgABAHDwsgABABCxoBAX8CQCAAKAIIIgENABAwAAsgASAAEC0ACxwAIAEoAh\
 RBhIHAAEEFIAFBGGooAgAoAgwRBgALFAACQCAAKAIARQ0AIAAoAgQQBAsLDgACQCAARQ0ADwsQKgAL\
 FAAgACgCACABIAAoAgQoAgwRBAALDgACQCABRQ0AIAAQBAsLDgACQCABRQ0AIAAQBAsLEAAgASAAKA\
-IEIAAoAggQAgsiACAAQtPSxNChl4q15AA3AwggAEKojcefuu/k5/oANwMACxAAIAEgACgCACAAKAIE\
+IEIAAoAggQAgsiACAAQoHv+Mz7+IT5rH83AwggAELjsZHlmoDV87Z/NwMACxAAIAEgACgCACAAKAIE\
 EAILDQAgACgCABoDfwwACwsLACAAIwBqJAAjAAsJACAAIAEQAAALDABBgIDAAEEbECkACw0AQZuAwA\
 BBzwAQKQALDQAgAEGMgcAAIAEQBQsJACAAIAEQGgALCgAgACABIAIQCQsHACABIABqCwUAEBUACwMA\
 AAsCAAsL3gMBAEGAgMAAC9QDbnVsbCBwb2ludGVyIHBhc3NlZCB0byBydXN0cmVjdXJzaXZlIHVzZS\
@@ -423,49 +418,49 @@ JuZWQgYW4gZXJyb3IACQAAAAAAAAABAAAACgAAAGxpYnJhcnkvYWxsb2Mvc3JjL2ZtdC5yczABEAAY\
 AAAAZAIAACAAAABjYWxsZWQgYE9wdGlvbjo6dW53cmFwKClgIG9uIGEgYE5vbmVgIHZhbHVlAAkAAA\
 AAAAAAAQAAAAsAAAA6IAAAqAEQAAAAAACUARAAAgAAAGxpYnJhcnkvc3RkL3NyYy9wYW5pY2tpbmcu\
 cnOoARAAHAAAAIYCAAAeAAAAAI8TBG5hbWUBhxMzADF3YXNtX2JpbmRnZW46Ol9fd2JpbmRnZW5fdG\
-hyb3c6OmhlMjI2Y2RlOGEyOTJkZDBjATpkbG1hbGxvYzo6ZGxtYWxsb2M6OkRsbWFsbG9jPEE+Ojpt\
-YWxsb2M6OmhhMmU3ZmRjMGI1ZDJiOTJiAixjb3JlOjpmbXQ6OkZvcm1hdHRlcjo6cGFkOjpoZjZlNj\
-ZmN2JmYjQ4OTNlNwMOX19ydXN0X3JlYWxsb2MEOGRsbWFsbG9jOjpkbG1hbGxvYzo6RGxtYWxsb2M8\
-QT46OmZyZWU6OmhhNWJmYzlkOTlkZmM0N2JiBSNjb3JlOjpmbXQ6OndyaXRlOjpoYTI3ODgyZDc3Y2\
-QxYWRmYQZBZGxtYWxsb2M6OmRsbWFsbG9jOjpEbG1hbGxvYzxBPjo6ZGlzcG9zZV9jaHVuazo6aDI2\
-ZmY5NjQ4M2IyZTE2YzUHPGRsbWFsbG9jOjpkbG1hbGxvYzo6RGxtYWxsb2M8QT46Om1lbWFsaWduOj\
-poYWYxNzUyZjNlOWU4ZGYxMghAZGxtYWxsb2M6OmRsbWFsbG9jOjpEbG1hbGxvYzxBPjo6dW5saW5r\
-X2NodW5rOjpoODNlOTE5NGU4N2MyNThmNQkxY29tcGlsZXJfYnVpbHRpbnM6Om1lbTo6bWVtY3B5Oj\
-poMzhmNWRhNGVjNTc5ZDJlYwpKPGFsbG9jOjpzdHJpbmc6OlN0cmluZyBhcyBjb3JlOjpmbXQ6Oldy\
-aXRlPjo6d3JpdGVfY2hhcjo6aGYxYjdjNWViYTU4MGQ3ZWULRmRsbWFsbG9jOjpkbG1hbGxvYzo6RG\
-xtYWxsb2M8QT46Omluc2VydF9sYXJnZV9jaHVuazo6aDJmMTYxNjlhNWQ3OTg1ZTgMDWdyZWV0ZXJf\
+hyb3c6OmhkNzI2YWRhY2I0NjU0OGU1ATpkbG1hbGxvYzo6ZGxtYWxsb2M6OkRsbWFsbG9jPEE+Ojpt\
+YWxsb2M6Omg4ZWYyN2FjZGZlYjA3YTBkAixjb3JlOjpmbXQ6OkZvcm1hdHRlcjo6cGFkOjpoMDVjOW\
+QxMGRkMjkxY2QyMwMOX19ydXN0X3JlYWxsb2MEOGRsbWFsbG9jOjpkbG1hbGxvYzo6RGxtYWxsb2M8\
+QT46OmZyZWU6Omg1NTlhMzQ1NWZlYTk2MTEwBSNjb3JlOjpmbXQ6OndyaXRlOjpoYTQzMzBjZTI4Zm\
+Y4YTkwMgZBZGxtYWxsb2M6OmRsbWFsbG9jOjpEbG1hbGxvYzxBPjo6ZGlzcG9zZV9jaHVuazo6aDkw\
+Yjk2Mjk5NTE5ZDE3OTYHPGRsbWFsbG9jOjpkbG1hbGxvYzo6RGxtYWxsb2M8QT46Om1lbWFsaWduOj\
+poMDU5NjYxNTg5NzRmOGMzMAhAZGxtYWxsb2M6OmRsbWFsbG9jOjpEbG1hbGxvYzxBPjo6dW5saW5r\
+X2NodW5rOjpoMmE2MDQxZjIyNGZkZTk2NgkxY29tcGlsZXJfYnVpbHRpbnM6Om1lbTo6bWVtY3B5Oj\
+poOTExYTY2YTlkNTYzZmZiZQpKPGFsbG9jOjpzdHJpbmc6OlN0cmluZyBhcyBjb3JlOjpmbXQ6Oldy\
+aXRlPjo6d3JpdGVfY2hhcjo6aGU5ODhiM2FjMTg5YzlhZGQLRmRsbWFsbG9jOjpkbG1hbGxvYzo6RG\
+xtYWxsb2M8QT46Omluc2VydF9sYXJnZV9jaHVuazo6aDRiNjJmZjM1Y2QxMTdkYzIMDWdyZWV0ZXJf\
 Z3JlZXQNTmFsbG9jOjpyYXdfdmVjOjpSYXdWZWM8VCxBPjo6cmVzZXJ2ZTo6ZG9fcmVzZXJ2ZV9hbm\
-RfaGFuZGxlOjpoOGQyNTM1OWJlM2RkMzI4ZA5AYWxsb2M6OnJhd192ZWM6OlJhd1ZlYzxULEE+Ojpy\
-ZXNlcnZlX2Zvcl9wdXNoOjpoZDBlOGZjZTZmNjA4ZDU1Nw8uYWxsb2M6OnJhd192ZWM6OmZpbmlzaF\
-9ncm93OjpoMDUyMjQ2N2I1ZjcwNWUzMxAuY29yZTo6cmVzdWx0Ojp1bndyYXBfZmFpbGVkOjpoYzUy\
-NDBkODAwNThhMzA5MRELZ3JlZXRlcl9uZXcSOWFsbG9jOjp2ZWM6OlZlYzxULEE+OjppbnRvX2JveG\
-VkX3NsaWNlOjpoZGQ3OTM5YzgyNDI4MGUyYxM3c3RkOjpwYW5pY2tpbmc6OnJ1c3RfcGFuaWNfd2l0\
-aF9ob29rOjpoZDRiYTcwMzU3MmIwMzU4YxRJPGFsbG9jOjpzdHJpbmc6OlN0cmluZyBhcyBjb3JlOj\
-pmbXQ6OldyaXRlPjo6d3JpdGVfc3RyOjpoZGY5MGI1NjY3ZWU3MWU3ZBUpY29yZTo6cGFuaWNraW5n\
-OjpwYW5pYzo6aDdkMWZlN2Q0YWNhOGU3NTUWEV9fd2JpbmRnZW5fbWFsbG9jFxJfX3diZ19ncmVldG\
-VyX2ZyZWUYNGFsbG9jOjpyYXdfdmVjOjpjYXBhY2l0eV9vdmVyZmxvdzo6aDM0MzJhMDkzMzkyYjRm\
-OTQZLWNvcmU6OnBhbmlja2luZzo6cGFuaWNfZm10OjpoZmRjOGI4Y2U1MjVkNmY0NBpDc3RkOjpwYW\
-5pY2tpbmc6OmJlZ2luX3BhbmljX2hhbmRsZXI6Ont7Y2xvc3VyZX19OjpoOTQ0YWUyYzU3ZDlhMzRj\
-NxsSX193YmluZGdlbl9yZWFsbG9jHAxfX3J1c3RfYWxsb2MdEXJ1c3RfYmVnaW5fdW53aW5kHj48Y2\
-9yZTo6Zm10OjpFcnJvciBhcyBjb3JlOjpmbXQ6OkRlYnVnPjo6Zm10OjpoZDI1ZDI3NmQyNmE5NGE5\
-Mh9CY29yZTo6cHRyOjpkcm9wX2luX3BsYWNlPGFsbG9jOjpzdHJpbmc6OlN0cmluZz46OmhlOGMyNj\
-NkZGIzZjRlYmYxIDZ3YXNtX2JpbmRnZW46Ol9fcnQ6OmFzc2VydF9ub3RfbnVsbDo6aGViNTEwYmVl\
-ZmQwMDMxNjMhMDwmVCBhcyBjb3JlOjpmbXQ6OkRlYnVnPjo6Zm10OjpoZDNmYTFhYmM3MmQzMmIxNy\
+RfaGFuZGxlOjpoYzdlMjY0MWJmMjc5MTdmMA5AYWxsb2M6OnJhd192ZWM6OlJhd1ZlYzxULEE+Ojpy\
+ZXNlcnZlX2Zvcl9wdXNoOjpoMzg5ZmExNDE2MmM5NzBiYw8uYWxsb2M6OnJhd192ZWM6OmZpbmlzaF\
+9ncm93OjpoN2FkZmE0YjY5M2MzMDUwMBAuY29yZTo6cmVzdWx0Ojp1bndyYXBfZmFpbGVkOjpoZWU0\
+MzJhNWJiMWMwNGIyOBELZ3JlZXRlcl9uZXcSOWFsbG9jOjp2ZWM6OlZlYzxULEE+OjppbnRvX2JveG\
+VkX3NsaWNlOjpoM2M4OWVmYzlkYTI5NmRlYRM3c3RkOjpwYW5pY2tpbmc6OnJ1c3RfcGFuaWNfd2l0\
+aF9ob29rOjpoOGU4NTU2ZGY1ZTQ2ZDJmZhRJPGFsbG9jOjpzdHJpbmc6OlN0cmluZyBhcyBjb3JlOj\
+pmbXQ6OldyaXRlPjo6d3JpdGVfc3RyOjpoMGM5OTU5ZWNlMWIzMjJmNBUpY29yZTo6cGFuaWNraW5n\
+OjpwYW5pYzo6aGFhOWY3OTRiN2QxYzc0YzkWEV9fd2JpbmRnZW5fbWFsbG9jFxJfX3diZ19ncmVldG\
+VyX2ZyZWUYNGFsbG9jOjpyYXdfdmVjOjpjYXBhY2l0eV9vdmVyZmxvdzo6aDE3OTgyNWM0NGEwNDU0\
+ODYZLWNvcmU6OnBhbmlja2luZzo6cGFuaWNfZm10OjpoYmVhNDI4N2U0MzVlZDhhMxpDc3RkOjpwYW\
+5pY2tpbmc6OmJlZ2luX3BhbmljX2hhbmRsZXI6Ont7Y2xvc3VyZX19OjpoMTQyYjlmNDU5ZGVkNzJk\
+ORsSX193YmluZGdlbl9yZWFsbG9jHAxfX3J1c3RfYWxsb2MdEXJ1c3RfYmVnaW5fdW53aW5kHj48Y2\
+9yZTo6Zm10OjpFcnJvciBhcyBjb3JlOjpmbXQ6OkRlYnVnPjo6Zm10OjpoNmJlZTY3MWU5Mzg5Njk1\
+Yx9CY29yZTo6cHRyOjpkcm9wX2luX3BsYWNlPGFsbG9jOjpzdHJpbmc6OlN0cmluZz46OmgyNzZiMz\
+E1ZWZkODFkOTFiIDZ3YXNtX2JpbmRnZW46Ol9fcnQ6OmFzc2VydF9ub3RfbnVsbDo6aDNjY2QyOTBm\
+YTJkZDNlYjEhMDwmVCBhcyBjb3JlOjpmbXQ6OkRlYnVnPjo6Zm10OjpoYzg3YWM5ZDk1MjM0ZGZlMy\
 JPPGFsbG9jOjphbGxvYzo6R2xvYmFsIGFzIGNvcmU6OmFsbG9jOjpBbGxvY2F0b3I+OjpkZWFsbG9j\
-YXRlOjpoMjJhZjM1Mjc5NDBkYzk4NCMPX193YmluZGdlbl9mcmVlJEc8YWxsb2M6OnN0cmluZzo6U3\
-RyaW5nIGFzIGNvcmU6OmZtdDo6RGlzcGxheT46OmZtdDo6aDE4ODI2OTlkYjk1YTA0MjUuMiUxPFQg\
-YXMgY29yZTo6YW55OjpBbnk+Ojp0eXBlX2lkOjpoYmJkZGVjMjIyYTUyYTQyYSYyPCZUIGFzIGNvcm\
-U6OmZtdDo6RGlzcGxheT46OmZtdDo6aDAwMWMzN2YzOGEzNzZjYzgnOWNvcmU6Om9wczo6ZnVuY3Rp\
-b246OkZuT25jZTo6Y2FsbF9vbmNlOjpoODRjNDc4YzAxOTNmOTAwZCgfX193YmluZGdlbl9hZGRfdG\
-9fc3RhY2tfcG9pbnRlcikqd2FzbV9iaW5kZ2VuOjp0aHJvd19zdHI6OmhmMGYyODM4NzcyOGU1MzYx\
-KjF3YXNtX2JpbmRnZW46Ol9fcnQ6OnRocm93X251bGw6Omg3NmIyY2FmMDU0N2QzNDZjKzJ3YXNtX2\
-JpbmRnZW46Ol9fcnQ6OmJvcnJvd19mYWlsOjpoZjI5Mjc4YTcxZDBkNDkxNywuY29yZTo6Zm10OjpX\
-cml0ZTo6d3JpdGVfZm10OjpoZWM2OGI1MTUxMGZlYTQ3ZC1Jc3RkOjpzeXNfY29tbW9uOjpiYWNrdH\
-JhY2U6Ol9fcnVzdF9lbmRfc2hvcnRfYmFja3RyYWNlOjpoZGE0YmUzMTA5ZDdkZDZiZS4GbWVtY3B5\
-LwNhZGQwLmNvcmU6Om9wdGlvbjo6dW53cmFwX2ZhaWxlZDo6aDIwOTRjOTdmN2M3NDgyNGQxCnJ1c3\
-RfcGFuaWMyPWNvcmU6OnB0cjo6ZHJvcF9pbl9wbGFjZTxjb3JlOjpmbXQ6OkVycm9yPjo6aDhmMzM4\
-YzM2M2YxNGMwYWUAdwlwcm9kdWNlcnMCCGxhbmd1YWdlAQRSdXN0AAxwcm9jZXNzZWQtYnkDBXJ1c3\
-RjJTEuNzcuMC1uaWdodGx5IChjYjRkOWExOTAgMjAyNC0wMS0zMCkGd2FscnVzBjAuMjAuMwx3YXNt\
+YXRlOjpoZDJjYzAwZGI2MTQxMDY1NyMPX193YmluZGdlbl9mcmVlJEc8YWxsb2M6OnN0cmluZzo6U3\
+RyaW5nIGFzIGNvcmU6OmZtdDo6RGlzcGxheT46OmZtdDo6aDYxMDVhM2RjM2QxNDVkZTQuMiUxPFQg\
+YXMgY29yZTo6YW55OjpBbnk+Ojp0eXBlX2lkOjpoOTBiNmRjOThlODQyZTY5OSYyPCZUIGFzIGNvcm\
+U6OmZtdDo6RGlzcGxheT46OmZtdDo6aGRmZTY4ODI5MGUzOWIzNTInOWNvcmU6Om9wczo6ZnVuY3Rp\
+b246OkZuT25jZTo6Y2FsbF9vbmNlOjpoNzM3MzMzZTNlODk1MDA5MCgfX193YmluZGdlbl9hZGRfdG\
+9fc3RhY2tfcG9pbnRlcikqd2FzbV9iaW5kZ2VuOjp0aHJvd19zdHI6OmhhMTg4MjdkZWI1YWE2ZmY3\
+KjF3YXNtX2JpbmRnZW46Ol9fcnQ6OnRocm93X251bGw6OmgxMzBjZjE3Mzc3ZDhjMDU5KzJ3YXNtX2\
+JpbmRnZW46Ol9fcnQ6OmJvcnJvd19mYWlsOjpoYmQ3NGYzYThjMmE5ZTgyMCwuY29yZTo6Zm10OjpX\
+cml0ZTo6d3JpdGVfZm10OjpoMmYxYmU5MGQ5Zjk3YWJmMS1Jc3RkOjpzeXNfY29tbW9uOjpiYWNrdH\
+JhY2U6Ol9fcnVzdF9lbmRfc2hvcnRfYmFja3RyYWNlOjpoMWMwZDMyNzg1NzAzNzViZS4GbWVtY3B5\
+LwNhZGQwLmNvcmU6Om9wdGlvbjo6dW53cmFwX2ZhaWxlZDo6aDY1MTU0ZTI4NjUxMjk3ZjIxCnJ1c3\
+RfcGFuaWMyPWNvcmU6OnB0cjo6ZHJvcF9pbl9wbGFjZTxjb3JlOjpmbXQ6OkVycm9yPjo6aDUwMzE5\
+NDZkMGY2ODg0ODkAdwlwcm9kdWNlcnMCCGxhbmd1YWdlAQRSdXN0AAxwcm9jZXNzZWQtYnkDBXJ1c3\
+RjJTEuNzcuMC1uaWdodGx5ICgxMWYzMmI3M2UgMjAyNC0wMS0zMSkGd2FscnVzBjAuMjAuMwx3YXNt\
 LWJpbmRnZW4GMC4yLjkyACwPdGFyZ2V0X2ZlYXR1cmVzAisPbXV0YWJsZS1nbG9iYWxzKwhzaWduLW\
 V4dA==\
     ",

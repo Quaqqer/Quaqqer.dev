@@ -8,7 +8,7 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "wasmbuild": "deno run -A jsr:@deno/wasmbuild@0.17.1 --sync"
+    "wasmbuild": "deno run -A jsr:@deno/wasmbuild@0.17.1 --sync --out ./wasm"
   },
   "lint": {
     "rules": {
@@ -25,7 +25,10 @@
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "$std/": "https://deno.land/std@0.216.0/"
+    "$std/": "https://deno.land/std@0.216.0/",
+    "@lib": "./lib",
+    "@lib/": "./lib/",
+    "@wasm/": "./wasm/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

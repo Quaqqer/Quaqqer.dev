@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "preact/hooks";
-import { instantiate } from "../lib/rs_lib.generated.js";
+import { instantiate } from "@wasm/greet.generated.js";
 
 export default function Rust() {
   const wasm = useMemo(() => instantiate(), []);
