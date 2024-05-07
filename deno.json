@@ -26,9 +26,10 @@
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "$std/": "https://deno.land/std@0.216.0/",
-    "@lib": "./lib",
     "@lib/": "./lib/",
-    "@wasm/": "./wasm/"
+    "@components/": "./components/",
+    "@wasm/": "./wasm/",
+    "clsx": "npm:clsx"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
