@@ -1,5 +1,9 @@
 import { assert } from "$std/assert/mod.ts";
 
+export const PIXEL_SIZE = 10;
+export const SCREEN_W = 64;
+export const SCREEN_H = 32;
+
 export const keymap = new Map<string, number>();
 keymap.set("1", 0x1);
 keymap.set("2", 0x2);
@@ -105,7 +109,7 @@ export class Chip8 {
         requestAnimationFrame(update);
       }
     };
-    update();
+    requestAnimationFrame(update);
 
     return () => {
       running = false;
@@ -302,13 +306,15 @@ export class Chip8 {
 
       // FX0A - Get key
       case a == 0xf && cd == 0x0a:
-        while (true) {
+        {
           for (let i = 0; i < 0x10; i++) {
             if (this.key_downs[i]) {
               this.registers[b] = i;
               break;
             }
           }
+          // If no key was pressed, execute this instruction again next cycle
+          this.pc = (this.pc - 2) & 0xffffff;
         }
         break;
 

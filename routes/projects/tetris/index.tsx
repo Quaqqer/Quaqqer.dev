@@ -19,10 +19,14 @@ export default function Index() {
       <p className="text-gray-400 text-md my-2">
         A small little feature I implemented was wall kicking. Without wall
         kicking a tetromino is not always rotateable at the edges of the screen.
-        The version I implemented was a very basic version of wall kicking where
-        it first tries to rotate without kicking, if it fails it moves it to the
-        right, if that fails to it moves it to the left instead. If all fail the
-        rotation fails.
+        I implemented the most basic version of wall kicking, the variant from
+        "Tetris The Grand master". It tries in order, rotated, rotated moved to
+        the right, rotated moved to the left. If any of these fail it will fail
+        to rotate. More information about wall kicks can be found at{" "}
+        <a href="https://tetris.fandom.com/wiki/TGM_Rotation">
+          the tetris wiki
+        </a>
+        .
       </p>
     </>
   );

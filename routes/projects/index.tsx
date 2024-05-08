@@ -75,30 +75,35 @@ export default function Page() {
 
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3 items-start">
           {projects.map((p, i) => (
-            <a
-              href={p.href}
+            <div
               className="flex flex-col items-start justify-between group"
               key={i}
             >
-              <img
-                src={p.imageUrl}
-                alt=""
-                className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-              />
+              <a href={p.href}>
+                <img
+                  src={p.imageUrl}
+                  alt=""
+                  className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                />
+              </a>
               <div className="max-w-xl">
                 <div className="mt-8 flex items-center gap-x-4 text-xs">
-                  <h3 className="text-lg font-semibold text-gray-100 group-hover:text-gray-200">
-                    {p.name}
-                  </h3>
+                  <a href={p.href}>
+                    <h3 className="text-lg font-semibold text-gray-100 group-hover:text-gray-200">
+                      {p.name}
+                    </h3>
+                  </a>
 
                   <div className="text-gray-500">{p.date}</div>
                 </div>
 
-                <p className="mt-5 text-sm leading-6 text-gray-400 group-hover:text-gray-300">
-                  {p.description}
-                </p>
+                <a href={p.href}>
+                  <p className="mt-5 text-sm leading-6 text-gray-400 group-hover:text-gray-300">
+                    {p.description}
+                  </p>
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
