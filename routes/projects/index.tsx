@@ -23,7 +23,8 @@ const projects: Project[] = [
     href: "/projects/tetris",
     imageUrl: "/img/tetris_article.jpeg",
     date: "2024-01-31",
-    github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/chip8",
+    github:
+      "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/chip8",
   },
   {
     name: "Chip8",
@@ -32,7 +33,8 @@ const projects: Project[] = [
     href: "/projects/chip8",
     imageUrl: "/img/chip8_article.jpeg",
     date: "2024-01-28",
-    github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/chip8",
+    github:
+      "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/chip8",
   },
   {
     name: "Cinemraft",
@@ -42,7 +44,7 @@ const projects: Project[] = [
     imageUrl: "/img/cinemraft_article.jpeg",
     date: "",
     github:
-      "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/cinemraft",
+      "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/cinemraft",
   },
   {
     name: "Snake",
@@ -51,7 +53,8 @@ const projects: Project[] = [
     href: "/projects/snake",
     imageUrl: "/img/snake_article.jpeg",
     date: "",
-    github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/snake",
+    github:
+      "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/snake",
   },
   {
     name: "Game of Life",
@@ -59,7 +62,8 @@ const projects: Project[] = [
     href: "/projects/gol",
     imageUrl: "/img/gol_article.jpeg",
     date: "",
-    github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/gol",
+    github:
+      "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/gol",
   },
 ];
 
