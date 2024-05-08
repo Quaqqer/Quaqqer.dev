@@ -31,7 +31,11 @@
     "@wasm/": "./wasm/",
     "clsx": "npm:clsx",
     "@islands/": "./islands/",
-    "@headlessui/react": "https://esm.sh/@headlessui/react@1.6.6?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat&external=preact/compat,preact"
+    "@headlessui/react": "https://esm.sh/@headlessui/react@1.6.6?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat&external=preact/compat,preact",
+    "three": "https://esm.sh/three@0.164.1",
+    "three/": "https://esm.sh/three@0.164.1/",
+    "simplex-noise": "https://esm.sh/simplex-noise@4.0.1",
+    "alea": "https://esm.sh/alea@1.0.1"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

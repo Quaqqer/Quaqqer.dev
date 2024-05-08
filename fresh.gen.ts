@@ -8,10 +8,12 @@ import * as $_layout from "./routes/_layout.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $index from "./routes/index.tsx";
 import * as $projects_chip8_index from "./routes/projects/chip8/index.tsx";
+import * as $projects_cinemraft_index from "./routes/projects/cinemraft/index.tsx";
 import * as $projects_index from "./routes/projects/index.tsx";
 import * as $projects_tetris_index from "./routes/projects/tetris/index.tsx";
 import * as $Rust from "./islands/Rust.tsx";
 import * as $projects_Chip8Component from "./islands/projects/Chip8Component.tsx";
+import * as $projects_CinemraftComponent from "./islands/projects/CinemraftComponent.tsx";
 import * as $projects_TetrisComponent from "./islands/projects/TetrisComponent.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -23,12 +25,14 @@ const manifest = {
     "./routes/api/joke.ts": $api_joke,
     "./routes/index.tsx": $index,
     "./routes/projects/chip8/index.tsx": $projects_chip8_index,
+    "./routes/projects/cinemraft/index.tsx": $projects_cinemraft_index,
     "./routes/projects/index.tsx": $projects_index,
     "./routes/projects/tetris/index.tsx": $projects_tetris_index,
   },
   islands: {
     "./islands/Rust.tsx": $Rust,
     "./islands/projects/Chip8Component.tsx": $projects_Chip8Component,
+    "./islands/projects/CinemraftComponent.tsx": $projects_CinemraftComponent,
     "./islands/projects/TetrisComponent.tsx": $projects_TetrisComponent,
   },
   baseUrl: import.meta.url,

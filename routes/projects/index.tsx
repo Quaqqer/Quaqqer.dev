@@ -42,7 +42,7 @@ const projects: Project[] = [
       "A simple voxel world generation with 3d rendering for the browser using three.js",
     href: "/projects/cinemraft",
     imageUrl: "/img/cinemraft_article.jpeg",
-    date: "",
+    date: "2022-10-28",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/cinemraft",
   },
