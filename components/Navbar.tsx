@@ -27,7 +27,7 @@ export function Navbar({ currentHref }: { currentHref: string }) {
                   href={href}
                   class={clsx(
                     "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white",
-                    current && "bg-gray-900 text-white",
+                    current && "bg-gray-900 text-white underline",
                   )}
                 >
                   {name}
