@@ -10,7 +10,6 @@ import * as $index from "./routes/index.tsx";
 import * as $projects_chip8_index from "./routes/projects/chip8/index.tsx";
 import * as $projects_index from "./routes/projects/index.tsx";
 import * as $projects_tetris_index from "./routes/projects/tetris/index.tsx";
-import * as $Counter from "./islands/Counter.tsx";
 import * as $Rust from "./islands/Rust.tsx";
 import * as $projects_Chip8Component from "./islands/projects/Chip8Component.tsx";
 import * as $projects_TetrisComponent from "./islands/projects/TetrisComponent.tsx";
@@ -28,7 +27,6 @@ const manifest = {
     "./routes/projects/tetris/index.tsx": $projects_tetris_index,
   },
   islands: {
-    "./islands/Counter.tsx": $Counter,
     "./islands/Rust.tsx": $Rust,
     "./islands/projects/Chip8Component.tsx": $projects_Chip8Component,
     "./islands/projects/TetrisComponent.tsx": $projects_TetrisComponent,
