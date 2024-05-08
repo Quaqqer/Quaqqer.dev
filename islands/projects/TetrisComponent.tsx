@@ -18,5 +18,13 @@ export default function TetrisComponent() {
     return stopper;
   }, [canvasRef]);
 
-  return <canvas width="200" height="480" tabindex={1} ref={setCanvasRef} />;
+  return (
+    <canvas
+      width="200"
+      height="480"
+      className="bg-black"
+      tabindex={1}
+      ref={setCanvasRef}
+    />
+  );
 }
