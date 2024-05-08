@@ -62,7 +62,7 @@ const projects: Project[] = [
       "Conways game of life is popular cellular automata. I implemented it in some basic JavaScript for fun",
     href: "/projects/gol",
     imageUrl: "/img/gol_article.jpeg",
-    date: "",
+    date: "2022-05-18",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/gol",
   },

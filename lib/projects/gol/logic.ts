@@ -1,17 +1,17 @@
-import { range, sum } from "lodash";
-
 type GOLGrid = boolean[][];
 
 function newGrid(
   width: number,
   height: number,
-  generator = () => false
+  generator = () => false,
 ): GOLGrid {
-  return range(height).map(() => range(width).map(generator));
+  return new Array(height)
+    .fill(0)
+    .map(() => new Array(width).fill(0).map(generator));
 }
 
-const neighbourIter = range(-1, 2)
-  .map((dy) => range(-1, 2).map((dx) => [dy, dx]))
+const neighbourIter = [-1, 0, 1]
+  .map((dy) => [-1, 0, 1].map((dx) => [dy, dx]))
   .flat();
 
 export class GameOfLife {
@@ -19,7 +19,7 @@ export class GameOfLife {
 
   public constructor(
     public readonly width: number,
-    public readonly height: number
+    public readonly height: number,
   ) {
     // Create a 2d array of false values, state[y][x]
     this.state = newGrid(width, height, () => Boolean(Math.random() > 0.7));
@@ -30,11 +30,9 @@ export class GameOfLife {
   }
 
   private neighbours(x: number, y: number): number {
-    return sum(
-      neighbourIter.map(
-        ([dy, dx]) => (dx !== 0 || dy !== 0) && this.isAlive(x + dx, y + dy)
-      )
-    );
+    return neighbourIter
+      .map(([dy, dx]) => (dx !== 0 || dy !== 0) && this.isAlive(x + dx, y + dy))
+      .reduce((a, v) => a + Number(v), 0);
   }
 
   private nextState(): GOLGrid {
@@ -43,7 +41,7 @@ export class GameOfLife {
       row.map((alive, x) => {
         const ns = this.neighbours(x, y);
         return (alive && (ns === 2 || ns === 3)) || ns === 3;
-      })
+      }),
     );
   }
 
@@ -55,7 +53,7 @@ export class GameOfLife {
     console.log(
       this.state
         .map((row) => row.map((v) => (v && "X") || " ").join("") + "\n")
-        .join("")
+        .join(""),
     );
   }
 
@@ -63,7 +61,7 @@ export class GameOfLife {
     return this.state.map((row, y) => row.map((v, x) => [v, x, y])).flat() as [
       boolean,
       number,
-      number
+      number,
     ][];
   }
 

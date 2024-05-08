@@ -1,5 +1,5 @@
-import { GameOfLife } from "./logic";
-import { Theme } from "./theme";
+import { GameOfLife } from "@lib/projects/gol/logic.ts";
+import { Theme } from "@lib/projects/gol/theme.ts";
 
 //           x       y       width   height
 type Rect = [number, number, number, number];
@@ -7,7 +7,7 @@ type Rect = [number, number, number, number];
 export function render(
   ctx: CanvasRenderingContext2D,
   gol: GameOfLife,
-  theme: Theme
+  theme: Theme,
 ): void {
   const [canvasW, canvasH] = [ctx.canvas.width, ctx.canvas.height];
   const [cW, cH] = [canvasW / gol.width, canvasH / gol.height].map(Math.floor);
@@ -20,7 +20,7 @@ export function render(
       cW,
       cH,
       (alive && theme.cell) || theme.background,
-      theme.borders
+      theme.borders,
     );
   });
 }
@@ -31,7 +31,7 @@ function drawRect(
   y: number,
   w: number,
   h: number,
-  color?: string
+  color?: string,
 ): void {
   ctx.beginPath();
   if (color) ctx.fillStyle = color;
@@ -54,7 +54,7 @@ function drawCell(
   cW: number,
   cH: number,
   color: string,
-  borderColor?: string
+  borderColor?: string,
 ): void {
   const bigRect = squareRect(cX, cY, cW, cH);
   drawRect(ctx, ...bigRect, borderColor ?? color);
