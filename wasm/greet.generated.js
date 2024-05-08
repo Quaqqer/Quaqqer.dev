@@ -7,13 +7,14 @@
 // source-hash: 1296bda20c08e47e31dcdc0a14ff6fc08b067642
 let wasm;
 
-const cachedTextDecoder = typeof TextDecoder !== "undefined"
-  ? new TextDecoder("utf-8", { ignoreBOM: true, fatal: true })
-  : {
-    decode: () => {
-      throw Error("TextDecoder not available");
-    },
-  };
+const cachedTextDecoder =
+  typeof TextDecoder !== "undefined"
+    ? new TextDecoder("utf-8", { ignoreBOM: true, fatal: true })
+    : {
+        decode: () => {
+          throw Error("TextDecoder not available");
+        },
+      };
 
 if (typeof TextDecoder !== "undefined") cachedTextDecoder.decode();
 
@@ -42,13 +43,14 @@ export function add(a, b) {
 
 let WASM_VECTOR_LEN = 0;
 
-const cachedTextEncoder = typeof TextEncoder !== "undefined"
-  ? new TextEncoder("utf-8")
-  : {
-    encode: () => {
-      throw Error("TextEncoder not available");
-    },
-  };
+const cachedTextEncoder =
+  typeof TextEncoder !== "undefined"
+    ? new TextEncoder("utf-8")
+    : {
+        encode: () => {
+          throw Error("TextEncoder not available");
+        },
+      };
 
 const encodeString = function (arg, view) {
   return cachedTextEncoder.encodeInto(arg, view);
@@ -58,7 +60,9 @@ function passStringToWasm0(arg, malloc, realloc) {
   if (realloc === undefined) {
     const buf = cachedTextEncoder.encode(arg);
     const ptr = malloc(buf.length, 1) >>> 0;
-    getUint8Memory0().subarray(ptr, ptr + buf.length).set(buf);
+    getUint8Memory0()
+      .subarray(ptr, ptr + buf.length)
+      .set(buf);
     WASM_VECTOR_LEN = buf.length;
     return ptr;
   }
@@ -72,7 +76,7 @@ function passStringToWasm0(arg, malloc, realloc) {
 
   for (; offset < len; offset++) {
     const code = arg.charCodeAt(offset);
-    if (code > 0x7F) break;
+    if (code > 0x7f) break;
     mem[ptr + offset] = code;
   }
 
@@ -80,7 +84,7 @@ function passStringToWasm0(arg, malloc, realloc) {
     if (offset !== 0) {
       arg = arg.slice(offset);
     }
-    ptr = realloc(ptr, len, len = offset + arg.length * 3, 1) >>> 0;
+    ptr = realloc(ptr, len, (len = offset + arg.length * 3), 1) >>> 0;
     const view = getUint8Memory0().subarray(ptr + offset, ptr + len);
     const ret = encodeString(arg, view);
 
@@ -101,9 +105,10 @@ function getInt32Memory0() {
   return cachedInt32Memory0;
 }
 
-const GreeterFinalization = (typeof FinalizationRegistry === "undefined")
-  ? { register: () => {}, unregister: () => {} }
-  : new FinalizationRegistry((ptr) => wasm.__wbg_greeter_free(ptr >>> 0));
+const GreeterFinalization =
+  typeof FinalizationRegistry === "undefined"
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry((ptr) => wasm.__wbg_greeter_free(ptr >>> 0));
 /** */
 export class Greeter {
   __destroy_into_raw() {

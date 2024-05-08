@@ -168,8 +168,9 @@ export class Chip8 {
 
       // 5XY0
       case a == 0x5 && d == 0x0:
-        if (this.registers[b] === this.registers[c])
+        if (this.registers[b] === this.registers[c]) {
           this.pc = (this.pc + 2) & 0xffffff;
+        }
         break;
 
       // 6XNN - Set VX to NN
@@ -255,8 +256,9 @@ export class Chip8 {
 
       // 9XY0
       case a == 0x9:
-        if (this.registers[b] !== this.registers[c])
+        if (this.registers[b] !== this.registers[c]) {
           this.pc = (this.pc + 2) & 0xffffff;
+        }
         break;
 
       // aNNN - Set index

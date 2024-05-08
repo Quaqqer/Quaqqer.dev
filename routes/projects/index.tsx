@@ -58,7 +58,8 @@ const projects: Project[] = [
   },
   {
     name: "Game of Life",
-    description: "Conways game of life is popular cellular automata",
+    description:
+      "Conways game of life is popular cellular automata. I implemented it in some basic JavaScript for fun",
     href: "/projects/gol",
     imageUrl: "/img/gol_article.jpeg",
     date: "",
@@ -69,40 +70,40 @@ const projects: Project[] = [
 
 export default function Page() {
   return (
-    <div className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
+    <div class="py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
             Projects
           </h2>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3 items-start">
+        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3 items-start">
           {projects.map((p, i) => (
             <div
-              className="flex flex-col items-start justify-between group"
+              class="flex flex-col items-start justify-between group"
               key={i}
             >
               <a href={p.href}>
                 <img
                   src={p.imageUrl}
                   alt=""
-                  className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                  class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                 />
               </a>
-              <div className="max-w-xl">
-                <div className="mt-8 flex items-center gap-x-4 text-xs">
+              <div class="max-w-xl">
+                <div class="mt-8 flex items-center gap-x-4 text-xs">
                   <a href={p.href}>
-                    <h3 className="text-lg font-semibold text-gray-100 group-hover:text-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-100 group-hover:text-gray-200">
                       {p.name}
                     </h3>
                   </a>
 
-                  <div className="text-gray-500">{p.date}</div>
+                  <div class="text-gray-500">{p.date}</div>
                 </div>
 
                 <a href={p.href}>
-                  <p className="mt-5 text-sm leading-6 text-gray-400 group-hover:text-gray-300">
+                  <p class="mt-5 text-sm leading-6 text-gray-400 group-hover:text-gray-300">
                     {p.description}
                   </p>
                 </a>

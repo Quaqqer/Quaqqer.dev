@@ -10,13 +10,13 @@ export default function ProjectTemplate({
   description: ComponentChildren;
 }) {
   return (
-    <div className="mx-auto max-w-screen-lg mt-18">
-      <div className="flex flex-col items-center">
-        <h2 className="text-3xl text-gray-300 font-medium my-6">{title}</h2>
+    <div class="mx-auto max-w-screen-lg mt-18">
+      <div class="flex flex-col items-center">
+        <h2 class="text-3xl text-gray-300 font-medium my-6">{title}</h2>
 
         {children}
 
-        <div className="py-12 max-w-xl">{description}</div>
+        <div class="py-12 max-w-xl">{description}</div>
       </div>
     </div>
   );
