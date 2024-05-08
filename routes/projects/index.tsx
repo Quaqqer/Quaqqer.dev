@@ -1,7 +1,10 @@
+import { GithubIcon } from "@lib/icons.tsx";
+import clsx from "clsx";
+
 type Project = {
   name: string;
   description: string;
-  href: string;
+  href?: string;
   imageUrl: string;
   date: string;
   github?: string;
@@ -12,10 +15,17 @@ const projects: Project[] = [
     name: "Saft",
     description:
       "Saft is a modern, high-level programming language designed for simplicity, efficiency, and expressiveness. It draws inspiration from functional and imperative paradigms, aiming to provide a clean and intuitive syntax for developers",
-    href: "/projects/saft",
     imageUrl: "/img/saft_article.jpeg",
     date: "2023-12-22 - now",
     github: "https://github.com/Quaqqer/saft",
+  },
+  {
+    name: "Advent of Code",
+    description:
+      "I have participated in Advent of Code since the year 2019. I'm one of those people who wake up at 6 am. to finish my puzzles as quickly as possible, before going back to sleep ;)",
+    imageUrl: "/img/aoc_article.jpeg",
+    date: "2019-12-01 - now",
+    github: "https://github.com/Quaqqer/aoc",
   },
   {
     name: "Tetris",
@@ -78,10 +88,10 @@ export default function Page() {
           </h2>
         </div>
 
-        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3 items-start">
+        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-start">
           {projects.map((p, i) => (
             <div
-              class="flex flex-col items-start justify-between group"
+              class="flex flex-col items-stretch justify-between group"
               key={i}
             >
               <a href={p.href}>
@@ -91,19 +101,40 @@ export default function Page() {
                   class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                 />
               </a>
-              <div class="max-w-xl">
-                <div class="mt-8 flex items-center gap-x-4 text-xs">
-                  <a href={p.href}>
-                    <h3 class="text-lg font-semibold text-gray-100 group-hover:text-gray-200">
-                      {p.name}
-                    </h3>
-                  </a>
 
-                  <div class="text-gray-500">{p.date}</div>
+              <div class="lg:px-2">
+                <div class="mt-8 flex items-center justify-between">
+                  <div class="flex items-center gap-x-4 text-xs">
+                    <a href={p.href}>
+                      <h3
+                        class={clsx(
+                          "text-lg font-semibold text-gray-100",
+                          p.href !== undefined && "group-hover:text-gray-200",
+                        )}
+                      >
+                        {p.name}
+                      </h3>
+                    </a>
+
+                    <div class="text-gray-500">{p.date}</div>
+                  </div>
+
+                  <div class="flex items-center gap-x-4">
+                    {p.github !== undefined && (
+                      <a href={p.github}>
+                        <GithubIcon class="h-5 w-5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <a href={p.href}>
-                  <p class="mt-5 text-sm leading-6 text-gray-400 group-hover:text-gray-300">
+                  <p
+                    class={clsx(
+                      "mt-5 text-sm leading-6 text-gray-400",
+                      p.href !== undefined && "group-hover:text-gray-300",
+                    )}
+                  >
                     {p.description}
                   </p>
                 </a>
