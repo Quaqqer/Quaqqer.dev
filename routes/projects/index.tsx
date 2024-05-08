@@ -18,20 +18,20 @@ const projects: Project[] = [
     github: "https://github.com/Quaqqer/saft",
   },
   {
+    name: "Tetris",
+    description: "The game of tetris coded up in a single evening",
+    href: "/projects/tetris",
+    imageUrl: "/img/tetris_article.jpeg",
+    date: "2024-01-31",
+    github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/chip8",
+  },
+  {
     name: "Chip8",
     description:
       "A javascript implementation of a CHIP-8 emulator. CHIP-8 is an imaginary console, a popular introduction to the world of programming emulators",
     href: "/projects/chip8",
     imageUrl: "/img/chip8_article.jpeg",
-    date: "",
-    github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/chip8",
-  },
-  {
-    name: "Tetris",
-    description: "The game of tetris coded up in a single evening",
-    href: "/projects/tetris",
-    imageUrl: "/img/tetris_article.jpeg",
-    date: "",
+    date: "2024-01-28",
     github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/chip8",
   },
   {
