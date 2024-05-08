@@ -29,7 +29,8 @@
     "@lib/": "./lib/",
     "@components/": "./components/",
     "@wasm/": "./wasm/",
-    "clsx": "npm:clsx"
+    "clsx": "npm:clsx",
+    "@islands/": "./islands/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

@@ -12,7 +12,7 @@ const projects: Project[] = [
     name: "Saft",
     description:
       "Saft is a modern, high-level programming language designed for simplicity, efficiency, and expressiveness. It draws inspiration from functional and imperative paradigms, aiming to provide a clean and intuitive syntax for developers",
-    href: "./saft",
+    href: "/projects/saft",
     imageUrl: "/img/saft_article.jpeg",
     date: "2023-12-22 - now",
     github: "https://github.com/Quaqqer/saft",
@@ -21,7 +21,7 @@ const projects: Project[] = [
     name: "Chip8",
     description:
       "A javascript implementation of a CHIP-8 emulator. CHIP-8 is an imaginary console, a popular introduction to the world of programming emulators",
-    href: "./chip8",
+    href: "/projects/chip8",
     imageUrl: "/img/chip8_article.jpeg",
     date: "",
     github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/chip8",
@@ -29,7 +29,7 @@ const projects: Project[] = [
   {
     name: "Tetris",
     description: "The game of tetris coded up in a single evening",
-    href: "./tetris",
+    href: "/projects/tetris",
     imageUrl: "/img/tetris_article.jpeg",
     date: "",
     github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/chip8",
@@ -38,7 +38,7 @@ const projects: Project[] = [
     name: "Cinemraft",
     description:
       "A simple voxel world generation with 3d rendering for the browser using three.js",
-    href: "./cinemraft",
+    href: "/projects/cinemraft",
     imageUrl: "/img/cinemraft_article.jpeg",
     date: "",
     github:
@@ -48,7 +48,7 @@ const projects: Project[] = [
     name: "Snake",
     description:
       "A simple implementation of the snake game, with a leaderboard",
-    href: "./snake",
+    href: "/projects/snake",
     imageUrl: "/img/snake_article.jpeg",
     date: "",
     github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/snake",
@@ -56,7 +56,7 @@ const projects: Project[] = [
   {
     name: "Game of Life",
     description: "Conways game of life is popular cellular automata",
-    href: "./gol",
+    href: "/projects/gol",
     imageUrl: "/img/gol_article.jpeg",
     date: "",
     github: "https://github.com/Quaqqer/empa.xyz/tree/trunk/lib/projects/gol",

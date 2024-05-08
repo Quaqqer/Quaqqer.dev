@@ -1,4 +1,8 @@
-function assertNever(value: never) {
+export const BLOCK_SIZE = 20;
+export const BLOCKS_X = 10;
+export const BLOCKS_Y = 24;
+
+function assertNever(value: never): never {
   throw new Error(`Unexpected value ${value}`);
 }
 
@@ -79,8 +83,8 @@ class FallingBlock {
 }
 
 export class Tetris {
-  private w = 10;
-  private h = 24;
+  private w = BLOCKS_X;
+  private h = BLOCKS_Y;
   private squares: Array<Array<Square>>;
   private fallingBlock: FallingBlock | undefined;
 
@@ -92,6 +96,7 @@ export class Tetris {
 
   init(container: HTMLElement, ctx: CanvasRenderingContext2D): () => void {
     container.addEventListener("keydown", (ev) => {
+      let preventDefault = true;
       switch (ev.key) {
         case "ArrowLeft":
           this.tryLeft();
@@ -114,7 +119,11 @@ export class Tetris {
           untickedTime = 0;
           this.render(ctx);
           break;
+        default:
+          preventDefault = false;
       }
+
+      if (preventDefault) ev.preventDefault();
     });
 
     let untickedTime = 0;
@@ -206,8 +215,8 @@ export class Tetris {
 
         this.setColor(ctx, sq);
 
-        ctx.fillRect(x * 20, y * 20, 20, 20);
-        ctx.strokeRect(x * 20, y * 20, 20, 20);
+        ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+        ctx.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
       }
     }
 
@@ -222,16 +231,16 @@ export class Tetris {
           this.setColor(ctx, sq);
 
           ctx.fillRect(
-            (this.fallingBlock.x + dx) * 20,
-            (this.fallingBlock.y + dy) * 20,
-            20,
-            20,
+            (this.fallingBlock.x + dx) * BLOCK_SIZE,
+            (this.fallingBlock.y + dy) * BLOCK_SIZE,
+            BLOCK_SIZE,
+            BLOCK_SIZE,
           );
           ctx.strokeRect(
-            (this.fallingBlock.x + dx) * 20,
-            (this.fallingBlock.y + dy) * 20,
-            20,
-            20,
+            (this.fallingBlock.x + dx) * BLOCK_SIZE,
+            (this.fallingBlock.y + dy) * BLOCK_SIZE,
+            BLOCK_SIZE,
+            BLOCK_SIZE,
           );
         }
       }
