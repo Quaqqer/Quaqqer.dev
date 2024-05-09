@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     name: "Saft",
     description:
-      "Saft is a modern, high-level programming language designed for simplicity, efficiency, and expressiveness. It draws inspiration from functional and imperative paradigms, aiming to provide a clean and intuitive syntax for developers",
+      "Saft is my personal programming language project. I've created a lexer, parser, compiler and bytecode vm in this project",
     imageUrl: "/img/saft_article.jpeg",
     date: "2023-12-22 - now",
     href: "https://github.com/Quaqqer/saft",
