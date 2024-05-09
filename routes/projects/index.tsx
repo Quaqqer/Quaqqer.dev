@@ -80,17 +80,6 @@ const projects: Project[] = [
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/cinemraft",
   },
   {
-    name: "Snake",
-    description:
-      "A simple implementation of the snake game, with a leaderboard",
-    imageUrl: "/img/snake_article.jpeg",
-    date: "",
-    href: "/projects/snake",
-    demo: "/projects/snake",
-    github:
-      "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/snake",
-  },
-  {
     name: "Game of Life",
     description:
       "Conways game of life is popular cellular automata. I implemented it in some basic JavaScript for fun",
@@ -100,6 +89,16 @@ const projects: Project[] = [
     demo: "/projects/gol",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/gol",
+  },
+  {
+    name: "Snake",
+    description: "A simple implementation of the snake game",
+    imageUrl: "/img/snake_article.jpeg",
+    date: "2022-05-17",
+    href: "/projects/snake",
+    demo: "/projects/snake",
+    github:
+      "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/snake",
   },
 ];
 
