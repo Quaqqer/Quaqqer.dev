@@ -37,14 +37,29 @@ const projects: Project[] = [
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/chip8",
   },
   {
-    name: "Chip8",
-    description:
-      "A javascript implementation of a CHIP-8 emulator. CHIP-8 is an imaginary console, a popular introduction to the world of programming emulators",
+    name: "CHIP-8 in JS",
+    description: "A javascript implementation of a CHIP-8 emulator",
     href: "/projects/chip8",
     imageUrl: "/img/chip8_article.jpeg",
     date: "2024-01-28",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/chip8",
+  },
+  {
+    name: "Nemu",
+    description:
+      "A nes emulator written in Rust. Currently only a CPU is implemented, I hope to finish it one day :)",
+    imageUrl: "/img/nemu_article.jpeg",
+    date: "2023-06-05 - ...",
+    github: "https://github.com/Quaqqer/nemu",
+  },
+  {
+    name: "CHIP-8 in Rust",
+    description:
+      "A CHIP-8 emulator written in rust. CHIP-8 is an imaginary console, a popular introduction to the world of programming emulators",
+    imageUrl: "/img/chip8_rs_article.jpeg",
+    date: "2023-06-04",
+    github: "https://github.com/Quaqqer/chip8",
   },
   {
     name: "Cinemraft",
