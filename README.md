@@ -12,9 +12,3 @@ deno task start
 - Show off personal projects
   - Descriptions
   - Demos
-
-## TODO
-
-- [ ] Write about Saft
-- [ ] Write about Advent of Code
-- [ ] Write about Nemu
