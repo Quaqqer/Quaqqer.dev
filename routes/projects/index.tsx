@@ -104,13 +104,17 @@ const projects: Project[] = [
 
 export default function Page() {
   return (
-    <div class="py-24 sm:py-32">
+    <div class="py-12 sm:py-24">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
-            Projects
-          </h2>
-        </div>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl text-center mx-auto max-w-2xl my-6">
+          Projects
+        </h2>
+
+        <p class="mx-auto my-3 max-w-2xl text-gray-400">
+          Here are some of the projects I've worked on in my free time. Some of
+          them are just links to GitHub, but some have a demo in the browser, if
+          you see a play button, why don't you click it? ;)
+        </p>
 
         <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-start">
           {projects.map((p, i) => (
