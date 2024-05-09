@@ -126,7 +126,7 @@ export default function Page() {
                 <img
                   src={p.imageUrl}
                   alt=""
-                  class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                  class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2] brightness-90 group-hover:brightness-100"
                 />
               </a>
 
@@ -134,12 +134,7 @@ export default function Page() {
                 <div class="mt-8 flex items-center justify-between">
                   <div class="flex items-center gap-x-4 text-xs">
                     <a href={p.href}>
-                      <h3
-                        class={clsx(
-                          "text-lg font-semibold text-gray-100",
-                          p.href !== undefined && "group-hover:text-gray-200",
-                        )}
-                      >
+                      <h3 class="text-lg font-semibold text-gray-100">
                         {p.name}
                       </h3>
                     </a>
