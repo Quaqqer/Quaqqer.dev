@@ -1,4 +1,4 @@
-import { Vector2, Point, Rect } from "./vector";
+import { Vector2, Point, Rect } from "@lib/projects/snake/vector.ts";
 
 export enum Direction {
   Up,
@@ -96,14 +96,17 @@ export class GameState {
   private boardRect: Rect;
   public score = 0;
 
-  constructor(public readonly width: number, public readonly height: number) {
+  constructor(
+    public readonly width: number,
+    public readonly height: number,
+  ) {
     this.snake = new Snake(
-      new Vector2(Math.floor(width / 2), Math.floor(height / 2))
+      new Vector2(Math.floor(width / 2), Math.floor(height / 2)),
     );
     this.fruit.push(this.findEmptySpace());
     this.boardRect = new Rect(
       new Vector2(0, 0),
-      new Vector2(width - 1, height - 1)
+      new Vector2(width - 1, height - 1),
     );
   }
 

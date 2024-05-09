@@ -1,12 +1,13 @@
-import { GithubIcon } from "@lib/icons.tsx";
+import { GithubIcon, PlayCircleIcon } from "@lib/icons.tsx";
 import clsx from "clsx";
 
 type Project = {
   name: string;
   description: string;
-  href?: string;
   imageUrl: string;
   date: string;
+  href?: string;
+  demo?: string;
   github?: string;
 };
 
@@ -17,6 +18,7 @@ const projects: Project[] = [
       "Saft is a modern, high-level programming language designed for simplicity, efficiency, and expressiveness. It draws inspiration from functional and imperative paradigms, aiming to provide a clean and intuitive syntax for developers",
     imageUrl: "/img/saft_article.jpeg",
     date: "2023-12-22 - now",
+    href: "https://github.com/Quaqqer/saft",
     github: "https://github.com/Quaqqer/saft",
   },
   {
@@ -25,23 +27,26 @@ const projects: Project[] = [
       "I have participated in Advent of Code since the year 2019. I'm one of those people who wake up at 6 am. to finish my puzzles as quickly as possible, before going back to sleep ;)",
     imageUrl: "/img/aoc_article.jpeg",
     date: "2019-12-01 - now",
+    href: "https://github.com/Quaqqer/aoc",
     github: "https://github.com/Quaqqer/aoc",
   },
   {
     name: "Tetris",
     description: "The game of tetris coded up in a single evening",
-    href: "/projects/tetris",
     imageUrl: "/img/tetris_article.jpeg",
     date: "2024-01-31",
+    href: "/projects/tetris",
+    demo: "/projects/tetris",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/chip8",
   },
   {
     name: "CHIP-8 in JS",
     description: "A javascript implementation of a CHIP-8 emulator",
-    href: "/projects/chip8",
     imageUrl: "/img/chip8_article.jpeg",
     date: "2024-01-28",
+    href: "/projects/chip8",
+    demo: "/projects/chip8",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/chip8",
   },
@@ -51,6 +56,7 @@ const projects: Project[] = [
       "A nes emulator written in Rust. Currently only a CPU is implemented, I hope to finish it one day :)",
     imageUrl: "/img/nemu_article.jpeg",
     date: "2023-06-05 - ...",
+    href: "https://github.com/Quaqqer/nemu",
     github: "https://github.com/Quaqqer/nemu",
   },
   {
@@ -59,15 +65,17 @@ const projects: Project[] = [
       "A CHIP-8 emulator written in rust. CHIP-8 is an imaginary console, a popular introduction to the world of programming emulators",
     imageUrl: "/img/chip8_rs_article.jpeg",
     date: "2023-06-04",
+    href: "https://github.com/Quaqqer/chip8",
     github: "https://github.com/Quaqqer/chip8",
   },
   {
     name: "Cinemraft",
     description:
       "A simple voxel world generation with 3d rendering for the browser using three.js",
-    href: "/projects/cinemraft",
     imageUrl: "/img/cinemraft_article.jpeg",
     date: "2022-10-28",
+    href: "/projects/cinemraft",
+    demo: "/projects/cinemraft",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/cinemraft",
   },
@@ -75,9 +83,10 @@ const projects: Project[] = [
     name: "Snake",
     description:
       "A simple implementation of the snake game, with a leaderboard",
-    href: "/projects/snake",
     imageUrl: "/img/snake_article.jpeg",
     date: "",
+    href: "/projects/snake",
+    demo: "/projects/snake",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/snake",
   },
@@ -85,9 +94,10 @@ const projects: Project[] = [
     name: "Game of Life",
     description:
       "Conways game of life is popular cellular automata. I implemented it in some basic JavaScript for fun",
-    href: "/projects/gol",
     imageUrl: "/img/gol_article.jpeg",
     date: "2022-05-18",
+    href: "/projects/gol",
+    demo: "/projects/gol",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/gol",
   },
@@ -135,6 +145,12 @@ export default function Page() {
                   </div>
 
                   <div class="flex items-center gap-x-4">
+                    {p.demo !== undefined && (
+                      <a href={p.demo}>
+                        <PlayCircleIcon class="h-6 w-6 text-white" />
+                      </a>
+                    )}
+
                     {p.github !== undefined && (
                       <a href={p.github}>
                         <GithubIcon class="h-5 w-5" />

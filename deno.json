@@ -35,7 +35,9 @@
     "three": "https://esm.sh/three@0.164.1",
     "three/": "https://esm.sh/three@0.164.1/",
     "simplex-noise": "https://esm.sh/simplex-noise@4.0.1",
-    "alea": "https://esm.sh/alea@1.0.1"
+    "alea": "https://esm.sh/alea@1.0.1",
+    "immutable": "https://esm.sh/immutable@4.3.5",
+    "mnemonist": "https://esm.sh/mnemonist@0.39.8"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

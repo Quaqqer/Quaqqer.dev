@@ -1,8 +1,8 @@
 import * as I from "immutable";
 import { Heap } from "mnemonist";
 
-import { Direction, GameState } from "./gamestate";
-import { Point, Vector2 } from "./vector";
+import { Direction, GameState } from "@lib/projects/snake/gamestate.ts";
+import { Point, Vector2 } from "@lib/projects/snake/vector.ts";
 
 export class AstarBot {
   private path?: Point[];
@@ -38,7 +38,7 @@ export class AstarBot {
   }
 
   private astar(
-    gs: GameState
+    gs: GameState,
   ): I.List<I.RecordOf<{ x: number; y: number }>> | null {
     type PointRT = I.RecordOf<{ x: number; y: number }>;
     const PointR = I.Record({ x: 0, y: 0 });

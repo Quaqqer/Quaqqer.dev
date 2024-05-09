@@ -1,7 +1,7 @@
-import { AstarBot } from "./cheat";
-import { Theme } from "./colors";
-import { GameState } from "./gamestate";
-import { TILES_H, TILES_V, Renderer } from "./renderer";
+import { AstarBot } from "@lib/projects/snake/cheat.ts";
+import { Theme } from "@lib/projects/snake/colors.ts";
+import { GameState } from "@lib/projects/snake/gamestate.ts";
+import { TILES_H, TILES_V, Renderer } from "@lib/projects/snake/renderer.ts";
 
 export class Game {
   private renderer: Renderer;
@@ -24,7 +24,7 @@ export class Game {
 
   public run(
     renderCtx: CanvasRenderingContext2D,
-    canvas: HTMLCanvasElement
+    canvas: HTMLCanvasElement,
   ): () => void {
     let running = true;
 

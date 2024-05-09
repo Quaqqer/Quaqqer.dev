@@ -1,6 +1,6 @@
-import { Theme, darkTheme } from "./colors";
-import { GameState } from "./gamestate";
-import { Point } from "./vector";
+import { Theme, darkTheme } from "@lib/projects/snake/colors.ts";
+import { GameState } from "@lib/projects/snake/gamestate.ts";
+import { Point } from "@lib/projects/snake/vector.ts";
 
 export const TILE_SIZE = 20;
 export const TILES_H = 24;
@@ -11,7 +11,7 @@ export class Renderer {
 
   constructor(
     private readonly gs: GameState,
-    public theme: Theme = darkTheme
+    public theme: Theme = darkTheme,
   ) {}
 
   private initalize(ctx: CanvasRenderingContext2D): void {
@@ -21,7 +21,7 @@ export class Renderer {
   private drawTile(
     ctx: CanvasRenderingContext2D,
     pos: Point,
-    color: string
+    color: string,
   ): void {
     ctx.beginPath();
     ctx.rect(pos.x * TILE_SIZE, pos.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
@@ -73,7 +73,7 @@ export class Renderer {
       "Score: " + this.gs.score.toString(),
       5,
       TILES_V * TILE_SIZE + 35,
-      TILES_H * TILE_SIZE - 10
+      TILES_H * TILE_SIZE - 10,
     );
   }
 
