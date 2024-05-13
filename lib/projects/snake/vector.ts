@@ -1,5 +1,8 @@
 export class Vector2 {
-  constructor(public readonly x: number, public readonly y: number) {}
+  constructor(
+    public readonly x: number,
+    public readonly y: number,
+  ) {}
 
   public added(other: Vector2): Vector2 {
     return new Vector2(this.x + other.x, this.y + other.y);
@@ -15,7 +18,10 @@ export class Vector2 {
 }
 
 export class Rect {
-  constructor(public readonly tl: Vector2, public readonly wh: Vector2) {}
+  constructor(
+    public readonly tl: Vector2,
+    public readonly wh: Vector2,
+  ) {}
 
   public contains(point: Point): boolean {
     return (
