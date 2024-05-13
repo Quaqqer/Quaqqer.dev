@@ -8,7 +8,7 @@ const navbarItems: [string, string][] = [
 
 export function Navbar({ currentHref }: { currentHref: string }) {
   return (
-    <div class="bg-gray-900 mb-5">
+    <header class="bg-gray-900 mb-5">
       <div class="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex h-16 items-center">
@@ -41,6 +41,6 @@ export function Navbar({ currentHref }: { currentHref: string }) {
           </a>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

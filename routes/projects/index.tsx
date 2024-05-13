@@ -22,9 +22,18 @@ const projects: Project[] = [
     github: "https://github.com/Quaqqer/saft",
   },
   {
+    name: "Nemu",
+    description:
+      "A work-in-progress NES emulator. Currently the CPU is pretty complete, and graphics is the current focus",
+    imageUrl: "/img/nemu_article.jpeg",
+    date: "2023-06-05 - now",
+    href: "https://github.com/Quaqqer/nemu",
+    github: "https://github.com/Quaqqer/nemu",
+  },
+  {
     name: "Advent of Code",
     description:
-      "I have participated in Advent of Code since the year 2019. I'm one of those people who wake up at 6 am. to finish my puzzles as quickly as possible, before going back to sleep ;)",
+      "I have participated in Advent of Code since the year 2019. I'm one of those people who wake up at 6 am. to finish my puzzles as quickly as possible, before going back to sleep",
     imageUrl: "/img/aoc_article.jpeg",
     date: "2019-12-01 - now",
     href: "https://github.com/Quaqqer/aoc",
@@ -49,15 +58,6 @@ const projects: Project[] = [
     demo: "/projects/chip8",
     github:
       "https://github.com/Quaqqer/Quaqqer.dev/tree/trunk/lib/projects/chip8",
-  },
-  {
-    name: "Nemu",
-    description:
-      "A nes emulator written in Rust. Currently only a CPU is implemented, I hope to finish it one day :)",
-    imageUrl: "/img/nemu_article.jpeg",
-    date: "2023-06-05 - ...",
-    href: "https://github.com/Quaqqer/nemu",
-    github: "https://github.com/Quaqqer/nemu",
   },
   {
     name: "CHIP-8 in Rust",
@@ -113,7 +113,7 @@ export default function Page() {
         <p class="mx-auto my-3 max-w-2xl text-gray-400">
           Here are some of the projects I've worked on in my free time. Some of
           them are just links to GitHub, but some have a demo in the browser, if
-          you see a play button, why don't you click it? ;)
+          you see a play button, why don't you click it?
         </p>
 
         <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-start">
