@@ -5,16 +5,19 @@ export default {
   content: ["{routes,islands,components}/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      typography: {
+      typography: ({ theme }) => ({
         DEFAULT: {
           css: {
-            a: ({ theme }) => ({
+            "h1, h2, h3, h4, h5, h6": {
+              color: theme("colors.gray.100"),
+            },
+            a: {
               color: theme("colors.blue.300"),
-              pointerEvents: "none",
-            }),
+              textDecorationLine: "underline",
+            },
           },
         },
-      },
+      }),
     },
   },
   plugins: [TailwindTypography],

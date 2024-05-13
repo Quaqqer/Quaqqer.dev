@@ -4,7 +4,7 @@ import Footer from "@components/Footer.tsx";
 
 export default function Layout({ Component, url }: PageProps) {
   return (
-    <div class="text-white">
+    <div class="text-gray-500">
       <div class="bg-gray-800 min-h-screen">
         <Navbar currentHref={url.pathname} />
 

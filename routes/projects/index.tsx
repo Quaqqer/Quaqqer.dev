@@ -1,10 +1,12 @@
 import { GithubIcon, PlayCircleIcon } from "@lib/icons.tsx";
 import clsx from "clsx";
+import { JSX } from "preact";
 
 type Project = {
   name: string;
   description: string;
   imageUrl: string;
+  imageProps?: JSX.HTMLAttributes<HTMLImageElement>;
   date: string;
   href?: string;
   demo?: string;
@@ -63,7 +65,8 @@ const projects: Project[] = [
     name: "CHIP-8 in Rust",
     description:
       "A CHIP-8 emulator written in rust. CHIP-8 is an imaginary console, a popular introduction to the world of programming emulators",
-    imageUrl: "/img/chip8_rs_article.jpeg",
+    imageUrl: "/img/chip8_rs_article.png",
+    imageProps: { style: { imageRendering: "pixelated" } },
     date: "2023-06-04",
     href: "https://github.com/Quaqqer/chip8",
     github: "https://github.com/Quaqqer/chip8",
@@ -72,7 +75,7 @@ const projects: Project[] = [
     name: "Cinemraft",
     description:
       "A simple voxel world generation with 3d rendering for the browser using three.js",
-    imageUrl: "/img/cinemraft_article.jpeg",
+    imageUrl: "/img/cinemraft_article.png",
     date: "2022-10-28",
     href: "/projects/cinemraft",
     demo: "/projects/cinemraft",
@@ -83,7 +86,7 @@ const projects: Project[] = [
     name: "Game of Life",
     description:
       "Conways game of life is popular cellular automata. I implemented it in some basic JavaScript for fun",
-    imageUrl: "/img/gol_article.jpeg",
+    imageUrl: "/img/gol_article.png",
     date: "2022-05-18",
     href: "/projects/gol",
     demo: "/projects/gol",
@@ -93,7 +96,7 @@ const projects: Project[] = [
   {
     name: "Snake",
     description: "A simple implementation of the snake game",
-    imageUrl: "/img/snake_article.jpeg",
+    imageUrl: "/img/snake_article.png",
     date: "2022-05-17",
     href: "/projects/snake",
     demo: "/projects/snake",
@@ -127,6 +130,7 @@ export default function Page() {
                   src={p.imageUrl}
                   alt=""
                   class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2] brightness-90 group-hover:brightness-100"
+                  {...p.imageProps}
                 />
               </a>
 
