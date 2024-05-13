@@ -11,3 +11,7 @@ a {
   font-weight: 400;
   font-style: normal;
 }
+
+a.anchor > svg {
+  display: none;
+}

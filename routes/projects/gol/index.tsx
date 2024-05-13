@@ -1,23 +1,24 @@
 import GameOfLifeComponent from "@islands/projects/GameOfLifeComponent.tsx";
 import ProjectTemplate from "@components/ProjectTemplate.tsx";
+import Markdown from "@components/Markdown.tsx";
+import { dedent } from "@qnighy/dedent";
 
 export default function Index() {
-  const desc = (
-    <>
-      <h3 class="text-xl text-gray-300 my-4">Description</h3>
-      <p class="text-gray-400 text-md my-2">
-        This is{" "}
-        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
-          Conways Game of Life
-        </a>
-        , a cellular automaton. An interesting fact is that it is turing
-        complete, and it can simulate itself.
-      </p>
-    </>
-  );
+  const md = dedent`
+    ### Description
+
+    This is [Conways Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life),
+    a cellular automaton. An interesting fact about it is that it's turing
+    complete and can simulate itself. The rules for Conways Game of Life are
+    very simple.
+
+    - A cell dies by isolation if it has fewer than two neighbours
+    - A cell dies by overpopulation if it has more than three neigbhours
+    - A dead cell comes to life if it has exactly three neighbours
+  `;
 
   return (
-    <ProjectTemplate title="Game of Life" description={desc}>
+    <ProjectTemplate title="Game of Life" description={<Markdown src={md} />}>
       <GameOfLifeComponent />
     </ProjectTemplate>
   );

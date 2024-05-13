@@ -1,3 +1,5 @@
+import { CSS } from "@deno/gfm";
+
 import { type PageProps } from "$fresh/server.ts";
 export default function App({ Component }: PageProps) {
   return (
@@ -20,6 +22,8 @@ export default function App({ Component }: PageProps) {
       <body>
         <Component />
       </body>
+
+      <style>{CSS}</style>
     </html>
   );
 }
