@@ -85,6 +85,13 @@ export class Chip8 {
 
     let start = Date.now();
 
+    const audioCtx = new globalThis.AudioContext();
+    const oscillator = audioCtx.createOscillator();
+    oscillator.frequency.value = 500;
+    oscillator.type = "sine";
+    oscillator.start();
+    let soundPlaying = false;
+
     const update = () => {
       if (running) {
         const end = Date.now();
@@ -104,6 +111,14 @@ export class Chip8 {
           this.decrementTimers();
         }
 
+        if (this.timer_sound > 0 && !soundPlaying) {
+          soundPlaying = true;
+          oscillator.connect(audioCtx.destination);
+        } else if (this.timer_sound == 0 && soundPlaying) {
+          soundPlaying = false;
+          oscillator.disconnect(audioCtx.destination);
+        }
+
         this.render(ctx);
 
         requestAnimationFrame(update);
@@ -112,6 +127,8 @@ export class Chip8 {
     requestAnimationFrame(update);
 
     return () => {
+      if (soundPlaying) oscillator.disconnect(audioCtx.destination);
+
       running = false;
     };
   }

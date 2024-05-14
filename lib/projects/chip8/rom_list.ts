@@ -1,6 +1,6 @@
 export type Rom = { name: string; url: string };
 
-const ENABLE_TEST_ROMS = false;
+const ENABLE_TEST_ROMS = true;
 
 const TEST_ROMS: Rom[] = [
   {
